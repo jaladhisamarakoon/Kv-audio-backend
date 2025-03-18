@@ -5,18 +5,22 @@ import userRouter from "./routes/userRouter.js";
 import productRouter from "./routes/productRouter.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import reviewRouter from "./routes/reviewRouter.js";
 
 dotenv.config();
 
+//"email": "johndoe@example.com",
+  //  "password": "securepassword123",
+
+  //"email": "john@example.com",
+  //"password": "securepassword123",admin
 
 
 
 
 
 
-
-
-let app = express()
+const app = express()
 
 app.use(bodyParser.json())
 app.use((req,res,next)=>{
@@ -48,6 +52,7 @@ connection.once("open",()=>{
 
 app.use("/api/users",userRouter)
 app.use("/api/products",productRouter)
+app.use("/api/reviews",reviewRouter)
 
 app.delete("/",
     (req,res)=>{
